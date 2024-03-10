@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meme Generator</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+           text-color:black;
+    }
+h1{
+color:red;
+}
+    #meme-container {
+      position: relative;
+      display: inline-block;
+border:1px solid black;
+    }
+    #meme-image {
+      max-width: 100%;
+      vertical-align: middle;
+    }
+    .meme-text {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      color: white;
+      text-shadow: 2px 2px 4px #000000;
+      pointer-events: none; /* to allow clicking through the text */
+    }
+    #top-text {
+      top: 10px;
+    }
+    #bottom-text {
+      bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Meme Generator</h1>
+    <div class="form-group">
+      <label for="image-url">Enter Image URL:</label>
+      <input type="text" class="form-control" id="image-url" placeholder="Enter Image URL">
+    </div>
+    <div class="form-group">
+      <label for="top-text-input">Top Text:</label>
+      <input type="text" class="form-control" id="top-text-input" placeholder="Enter Top Text">
+    </div>
+    <div class="form-group">
+      <label for="bottom-text-input">Bottom Text:</label>
+      <input type="text" class="form-control" id="bottom-text-input" placeholder="Enter Bottom Text">
+    </div>
+    <button class="btn btn-primary" onclick="generateMeme()">Generate Meme</button>
+  </div>
+
+  <div id="meme-container" class="mt-5">
+    <img id="meme-image" src="" alt="Meme Image">
+    <div id="top-text" class="meme-text"></div>
+    <div id="bottom-text" class="meme-text"></div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JS -->
+  <script>
+    function generateMeme() {
+      const imageUrl = document.getElementById('image-url').value;
+      const topText = document.getElementById('top-text-input').value;
+      const bottomText = document.getElementById('bottom-text-input').value;
+
+      // Update image source
+      document.getElementById('meme-image').src = imageUrl;
+
+      // Update top and bottom text
+      document.getElementById('top-text').textContent = topText;
+      document.getElementById('bottom-text').textContent = bottomText;
+    }
+  </script>
+</body>
+</html>
